@@ -8,6 +8,8 @@ export const Greetings = ({ name }) => {
    
     // FUNCTIONS
 
+
+    
     // RETURN
     return (
         <div>
