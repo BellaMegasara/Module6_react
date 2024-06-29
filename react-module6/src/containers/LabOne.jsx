@@ -1,7 +1,8 @@
 import { GreetingsHoC } from "../components/Greetings";
-estionContainerStyle = {
-    backgroundColor: "lightgray"
-}
+//estionContainerStyle = {
+ //   backgroundColor: "lightgray"
+//}
+
 export const LabOne = () => {
    const labelStyle = {
     textAlign: "left",
@@ -32,17 +33,20 @@ const labQuestionContainerStyle = {
     );
 };
 
-const labelAndContent = ({labelText, children}) => {
+export const labelAndContent = ({labelText, children}) => {
     // state/variable
     const labelStyle = {
-        textAlign: "left,"
+        textAlign: "left"
     };
 
     //function
 
     //return
-    return(
-
-
+    
+    return( 
+    <div>  
+        <p style={labelStyle}>{labelText}</p>  
+        { children }
+    </div>
     )
-}
+};

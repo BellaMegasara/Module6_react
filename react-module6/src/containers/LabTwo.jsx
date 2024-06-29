@@ -1,3 +1,5 @@
+import { GreetingsHoC } from "../components/Greetings";
+
 export const LabTwo = () => {
 //state/variables
 

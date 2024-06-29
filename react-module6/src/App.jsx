@@ -3,51 +3,52 @@ import './App.css'
 import { Greetings, GreetingsHoC } from './components/Greetings'
 import { LabTwo } from './containers/LabTwo';
 import { LabOne } from './containers/LabOne';
-
+import { LabThree } from './containers/LabThree';
 // COMPONENT FUNCTION NAME -> INITIALISE
 const App = () => {
   const [contentName, setContentName] = useState("");
 
-  // STATES & VARIABLES
-  const contentDictionary = {
-    LabOne: "Lab 1",
-    LabTwo: "Lab 2",
-  };
+
+  // STATES & VARIABLE
+
+  const contentConfig = [{ lab: "Lab 1"}, {lab: "Lab 2" }, {lab: "Lab 3"}];
 
   // FUNCTIONS
   const displayHandler = () => {
-    if(contentName === "") {
-      return <div>nothing to display</div>;
-    }
-    if (contentName === "Lab 1") {
-    return <LabOne />;
-    }
-    
-    if (contentName === "Lab 2") {
-     return <LabTwo />;
-    }
-  };
-
   switch (contentName) {
-    case "Lab 1":
-      return <LabOne />
-    case "Lab 2":
-      return <LabTwo />
+    case contentConfig[0].lab:
+      return <LabOne />;
+    case contentConfig[1].lab:
+      return <LabTwo />;
+      case contentConfig[2].lab:
+      return <LabThree />;
     default:
       return <div>Click on a Lab button to see the content</div>;
   }
 };
 
+const buttonConstructor = () => {
+  const buttonElementArray = contentConfig.map((content) => {
+    return (
+      <button
+      key={content.lab}
+      onClick={() => setContentName(content.lab)}
+      style={{margin: "5px"}}
+      >
+        {content.lab}
+      </button>
+    );
+  });
+  return buttonElementArray;
+};
+
   // RETURN
   return (
     <div className="main-app-container">
-      <p>
-        This is the welcome page that will display the button for each lab
-      </p>
-      <div style={{display: "flex", justifyContent: "space-evenly"}}>
-        <button onClick={() => setContentName('Lab 1')}>Lab 1</button>
-        <button onClick={() => setContentName('Lab 1')}>Lab 2</button>
+      <div style={{display: "flex", justifyContent: "space-evenly", marginBottom: "5px"}}>
+       {buttonConstructor()}
       </div>
+
       <div style={{display:"flex", width:"100%", border: "red 1px solid"}}>
        
         {displayHandler()}
