@@ -1,7 +1,5 @@
 import { GreetingsHoC } from "../components/Greetings";
-//estionContainerStyle = {
- //   backgroundColor: "lightgray"
-//}
+
 
 export const LabOne = () => {
    const labelStyle = {

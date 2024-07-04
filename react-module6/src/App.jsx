@@ -4,27 +4,36 @@ import { Greetings, GreetingsHoC } from './components/Greetings'
 import { LabTwo } from './containers/LabTwo';
 import { LabOne } from './containers/LabOne';
 import { LabThree } from './containers/LabThree';
+import { LabFour } from './containers/LabFour';
+import { LabFive } from './containers/LabFive';
+import { LabFive } from './containers/LabFive';
+
 // COMPONENT FUNCTION NAME -> INITIALISE
+
+
 const App = () => {
   const [contentName, setContentName] = useState("");
 
 
   // STATES & VARIABLE
 
-  const contentConfig = [{ lab: "Lab 1"}, {lab: "Lab 2" }, {lab: "Lab 3"}];
+  const contentConfig = [{ lab: "Lab 1"}, {lab: "Lab 2" }, {lab: "Lab 3"}, {lab: "Lab 4"}];
 
   // FUNCTIONS
   const displayHandler = () => {
   switch (contentName) {
-    case contentConfig[0].lab:
-      return <LabOne />;
     case contentConfig[1].lab:
-      return <LabTwo />;
-      case contentConfig[2].lab:
-      return <LabThree />;
+      return LabTwo;
+    case contentConfig[2].lab:
+      return LabThree;
+    case contentConfig[3].lab:
+      return LabFour;
+    case contentConfig[4].lab:
+      return LabFive;
     default:
+      console.assert(first, second)
       return <div>Click on a Lab button to see the content</div>;
-  }
+  };
 };
 
 const buttonConstructor = () => {
